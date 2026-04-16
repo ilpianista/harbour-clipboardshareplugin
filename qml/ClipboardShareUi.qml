@@ -21,55 +21,49 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import Sailfish.TransferEngine 1.0
 
-ShareDialog {
-    id: root
+Page {
+    property var shareAction
+    property var content
+    property bool _doPop: false
 
-    property bool isLink: root.content && ('type') in root.content &&
-            root.content.type === "text/x-url"
-    property bool isText: root.content && ('type') in root.content &&
-            root.content.type === "text/plain"
+    function close() {
+        if (pageStack.busy) {
+            _doPop = true;
+        } else {
+            _doPop = false;
+            pageStack.pop(null, PageStackAction.Immediate);
+            if (pageStack.depth > 1)
+                pageStack.pop(null, PageStackAction.Immediate);
 
-    onAccepted: {
-        Clipboard.text = shareItem.userData.text
-        shareItem.start()
-    }
-
-    Column {
-        anchors.fill: parent
-
-        spacing: Theme.paddingMedium
-
-        DialogHeader {
-            acceptText: qsTr("Copy to clipboard")
-        }
-
-        Label {
-            anchors.horizontalCenter: parent.horizontalCenter
-            color: Theme.highlightColor
-            text: root.content.status
-            width: root.width - Theme.paddingLarge * 2
-            elide: Text.ElideRight
-            wrapMode:  Text.Wrap
-            maximumLineCount: 3
-            opacity: .6
-            font.pixelSize: Theme.fontSizeSmall
         }
     }
 
-    SailfishShare {
-        id: shareItem
+    onContentChanged: {
+        if (content !== undefined && content.status !== undefined && content.status.length > 0)
+            Clipboard.text = content.status;
 
-        source: root.source
-        metadataStripped: true
-        serviceId: root.methodId
-        userData: {
-            "text": root.content.status
-        }
-        mimeType: root.isLink ? "text/x-url" : "text/plain"
+        close();
     }
+    Component.onCompleted: {
+        if (shareAction !== undefined) {
+            if (shareAction.resources !== undefined) {
+                for (var i = 0, size = shareAction.resources.length; i < size; i++) {
+                    if (shareAction.resources[i].status && shareAction.resources[i].status.length > 0) {
+                        Clipboard.text = shareAction.resources[i].status;
+                        break;
+                    }
+                }
+            }
+            shareAction.done();
+        }
+    }
+
+    Connections {
+        target: pageStack
+        onBusyChanged: close()
+    }
+
 }

@@ -22,23 +22,21 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#pragma once
+#include <TransferEngine-qt5/sharingmethodinfo.h>
+#include <TransferEngine-qt5/sharingplugininfo.h>
 
-#include <TransferEngine-qt5/transferplugininfo.h>
-#include <TransferEngine-qt5/transfermethodinfo.h>
-
-class ClipboardPluginInfo: public TransferPluginInfo
+class ClipboardPluginInfo : public SharingPluginInfo
 {
     Q_OBJECT
 
     bool m_Ready;
-    QList<TransferMethodInfo> m_InfoList;
+    QList<SharingMethodInfo> m_InfoList;
 
 public:
     ClipboardPluginInfo();
     ~ClipboardPluginInfo();
 
-    QList<TransferMethodInfo> info() const;
+    QList<SharingMethodInfo> info() const;
     void query();
     bool ready() const;
 };

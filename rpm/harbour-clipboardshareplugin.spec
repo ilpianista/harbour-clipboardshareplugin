@@ -9,7 +9,7 @@ Name:       harbour-clipboardshareplugin
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
 Summary:    TransferEngine plugin for copying text and urls into clipboard
-Version:    1.1
+Version:    1.2
 Release:    1
 Group:      System/Libraries
 License:    The MIT License (MIT)
@@ -20,6 +20,7 @@ Requires:   sailfishsilica-qt5 >= 0.10.9
 Requires:   nemo-transferengine-qt5 >= 0.3.1
 Requires:   declarative-transferengine-qt5 >= 0.0.44
 BuildRequires:  pkgconfig(Qt5Core)
+BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(nemotransferengine-qt5)
 
 %description
@@ -53,7 +54,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
-%{_libdir}/nemo-transferengine/plugins/*.so
+%{_libdir}/nemo-transferengine/plugins/sharing/*.so
 %{_datadir}/nemo-transferengine/plugins/ClipboardShareUi.qml
 
 # >> files

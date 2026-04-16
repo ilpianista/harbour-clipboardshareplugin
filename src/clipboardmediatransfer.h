@@ -22,8 +22,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#pragma once
-
 #include <TransferEngine-qt5/mediatransferinterface.h>
 #include <TransferEngine-qt5/mediaitem.h>
 

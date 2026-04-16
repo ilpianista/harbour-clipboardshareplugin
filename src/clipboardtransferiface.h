@@ -22,26 +22,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-#pragma once
+#include <TransferEngine-qt5/sharingplugininfo.h>
+#include <TransferEngine-qt5/sharingplugininterface.h>
 
-#include <TransferEngine-qt5/transferplugininterface.h>
-#include <TransferEngine-qt5/transferplugininfo.h>
-#include <TransferEngine-qt5/transfermethodinfo.h>
-#include <TransferEngine-qt5/mediatransferinterface.h>
-
-class ClipboardSharePlugin: public QObject
-                        , public TransferPluginInterface
+class Q_DECL_EXPORT ClipboardSharePlugin : public QObject, public SharingPluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "harbour.Clipboard.transfer.plugin")
-    Q_INTERFACES(TransferPluginInterface)
+    Q_PLUGIN_METADATA(IID "harbour.Clipboard.sharing.plugin")
+    Q_INTERFACES(SharingPluginInterface)
 
 public:
     ClipboardSharePlugin();
     ~ClipboardSharePlugin();
 
     QString pluginId() const;
-    bool enabled() const;
-    TransferPluginInfo* infoObject();
-    MediaTransferInterface* transferObject();
+    SharingPluginInfo *infoObject();
 };

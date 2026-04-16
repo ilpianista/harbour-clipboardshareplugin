@@ -23,19 +23,16 @@ THE SOFTWARE.
 */
 
 #include "clipboardtransferiface.h"
-#include "clipboardplugininfo.h"
-#include "clipboardmediatransfer.h"
 
-#include <QtPlugin>
+#include "clipboardmediatransfer.h"
+#include "clipboardplugininfo.h"
 
 ClipboardSharePlugin::ClipboardSharePlugin()
 {
-
 }
 
 ClipboardSharePlugin::~ClipboardSharePlugin()
 {
-
 }
 
 QString ClipboardSharePlugin::pluginId() const
@@ -43,17 +40,7 @@ QString ClipboardSharePlugin::pluginId() const
     return QLatin1String ("ClipboardSharePlugin");
 }
 
-bool ClipboardSharePlugin::enabled() const
-{
-    return true;
-}
-
-TransferPluginInfo* ClipboardSharePlugin::infoObject()
+SharingPluginInfo *ClipboardSharePlugin::infoObject()
 {
     return new ClipboardPluginInfo;
-}
-
-MediaTransferInterface* ClipboardSharePlugin::transferObject()
-{
-    return new ClipboardMediaTransfer;
 }

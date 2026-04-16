@@ -33,26 +33,26 @@ ClipboardPluginInfo::~ClipboardPluginInfo()
 {
 }
 
-QList<TransferMethodInfo> ClipboardPluginInfo::info() const
+QList<SharingMethodInfo> ClipboardPluginInfo::info() const
 {
     return m_InfoList;
 }
 
 void ClipboardPluginInfo::query()
 {
-    TransferMethodInfo info;
+    SharingMethodInfo info;
 
     QStringList capabilities;
     capabilities << QLatin1String("text/x-url");
     capabilities << QLatin1String("text/plain");
 
-    info.displayName = QLatin1String("Clipboard");
-    info.methodId = QLatin1String("ClipboardSharePlugin");
-    info.accountIcon = QLatin1String("image://theme/icon-m-clipboard");
-    info.shareUIPath = QLatin1String("/usr/share/nemo-transferengine/plugins/ClipboardShareUi.qml");
-    info.capabilitities = capabilities;
+    info.setDisplayName(QLatin1String("Clipboard"));
+    info.setMethodId(QLatin1String("ClipboardSharePlugin"));
+    info.setMethodIcon(QLatin1String("image://theme/icon-m-clipboard"));
+    info.setShareUIPath(
+        QLatin1String("/usr/share/nemo-transferengine/plugins/ClipboardShareUi.qml"));
+    info.setCapabilities(capabilities);
 
-    m_InfoList.clear();
     m_InfoList << info;
 
     m_Ready = true;
