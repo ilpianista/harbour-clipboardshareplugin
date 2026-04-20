@@ -26,6 +26,21 @@ BuildRequires:  pkgconfig(nemotransferengine-qt5)
 %description
 TransferEngine plugin for copying text and urls into clipboard
 
+%if 0%{?_chum}
+Title: Clipboard Share Plugin
+Type: addon
+DeveloperName: Andrea Scarpino (ilpianista)
+Categories:
+ - Utility
+Custom:
+  Repo: https://github.com/ilpianista/harbour-clipboardshareplugin
+Links:
+  Homepage: https://github.com/ilpianista/harbour-clipboardshareplugin
+  Bugtracker: https://github.com/ilpianista/harbour-clipboardshareplugin/issues
+  Help: https://github.com/ilpianista/harbour-clipboardshareplugin/discussions
+  Donation: https://liberapay.com/ilpianista
+%endif
+
 %prep
 %setup -q -n %{name}-%{version}
 
