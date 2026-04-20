@@ -1,9 +1,5 @@
-# Rename this file as harbour-clipboardshareplugin.changes to include changelog
-# entries in your RPM file.
-#
-# Add new changelog entries following the format below.
-# Add newest entries to the top of the list.
-# Separate entries from eachother with a blank line.
+* Mon Apr 20 2026 Andrea Scarpino <andrea@scarpino.dev> 1.2
+- Support for SailfishOS >= 4.4
 
 * Sat Jun 09 2018 Oleg Linkin <maledictusdemagog@gmail.com> 1.1
 - Add account icon

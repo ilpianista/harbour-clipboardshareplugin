@@ -12,7 +12,7 @@ Summary:    TransferEngine plugin for copying text and urls into clipboard
 Version:    1.2
 Release:    1
 Group:      System/Libraries
-License:    The MIT License (MIT)
+License:    MIT
 URL:        https://github.com/Maledictus/clipboardshareplugin
 Source0:    %{name}-%{version}.tar.bz2
 
