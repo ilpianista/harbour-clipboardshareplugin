@@ -24,8 +24,6 @@ THE SOFTWARE.
 
 #include "clipboardmediatransfer.h"
 
-#include <QGuiApplication>
-
 ClipboardMediaTransfer::ClipboardMediaTransfer(QObject *parent)
 : MediaTransferInterface(parent)
 {

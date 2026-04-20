@@ -2,6 +2,8 @@ TEMPLATE = lib
 TARGET = $$qtLibraryTarget(clipboardshareplugin)
 CONFIG += plugin
 
+QT -= gui
+
 CONFIG += link_pkgconfig
 PKGCONFIG += nemotransferengine-qt5
 
