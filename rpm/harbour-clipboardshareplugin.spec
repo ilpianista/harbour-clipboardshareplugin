@@ -10,7 +10,7 @@ Name:       harbour-clipboardshareplugin
 
 Summary:    TransferEngine plugin for copying text and urls into clipboard
 Version:    1.2
-Release:    1
+Release:    2
 Group:      System/Libraries
 License:    MIT
 URL:        https://github.com/Maledictus/clipboardshareplugin
