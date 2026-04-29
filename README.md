@@ -6,7 +6,7 @@ Fork of the original [ClipboardSharePlugin](https://github.com/Maledictus/harbou
 
 ## Install
 
-Install via [Chum](https://github.com/sailfishos-chum/main) or [OpenRepos](https://openrepos.net/content/ilpianista/papocchio).
+Install via [Chum](https://github.com/sailfishos-chum/main).
 
 ## Donate
 
